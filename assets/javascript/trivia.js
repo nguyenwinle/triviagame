@@ -30,9 +30,6 @@ $(document).ready(function() {
     // TODO: Use jQuery to run "startTrivia" when we click the "start" button.
     $("#start").click(startTrivia);
 
-    // TODO: Use jQuery to run "stopTrivia" when we click the "stop" button.
-    $("#stop").click(stopTrivia);
-
 
     // This function will replace display whatever question it's given
     function displayQuestion() {
