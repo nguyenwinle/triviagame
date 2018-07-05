@@ -28,12 +28,22 @@ $(document).ready(function() {
 
 
     // TODO: Use jQuery to run "startTrivia" when we click the "start" button.
+
+    $("#start").on("click", function() {
+        $(this).hide();
+        
+    });
+
+
     $("#start").click(startTrivia);
 
 
     // This function will replace display whatever question it's given
     function displayQuestion() {
         // generate questions
+        // TODO: Use showQuestion to hold the setInterval to run nextQuestion.
+    s
+
 
     }
 
@@ -50,9 +60,9 @@ $(document).ready(function() {
     }
 
     function startTrivia() {
-
-    // TODO: Use showQuestion to hold the setInterval to run nextQuestion.
-    showQuestion = setInterval(nextQuestion, 25000);
+        $(this).hide();
+counter = setInterval(timer, 1000); 
+displayTrivia();
 
     }
 
