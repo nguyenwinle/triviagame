@@ -42,6 +42,10 @@ $(document).ready(function() {
     function displayQuestion() {
         // generate questions
         // TODO: Use showQuestion to hold the setInterval to run nextQuestion.
+        for (var i = 0; i < questions.length; i++) {
+            var question = questions[i];
+            //display each question at a time
+        }
     s
 
 
