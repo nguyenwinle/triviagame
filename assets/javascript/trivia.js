@@ -32,6 +32,8 @@ $(document).ready(function() {
     $("#start").on("click", function() {
         $(this).hide();
 
+        //$("body").append("<h3>Time Remaining:" + time + "</h3");
+
         var firstQuestion = questions[0];
 
         $(".question").append("<h3 class = 'first'>" + firstQuestion.question + "</h3>")
@@ -51,11 +53,11 @@ $(document).ready(function() {
     function displayQuestion() {
         // generate questions
         // TODO: Use showQuestion to hold the setInterval to run nextQuestion.
-        for (var i = 0; i < questions.length; i++) {
-            var question = questions[i];
-            //display each question at a time
-        }
-    s
+        // for (var i = 0; i < questions.length; i++) {
+        //     var question = questions[i];
+        //     //display each question at a time
+        // }
+    
 
 
     }
