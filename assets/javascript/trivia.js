@@ -31,12 +31,21 @@ $(document).ready(function() {
 
     $("#start").on("click", function() {
         $(this).hide();
+
+        var firstQuestion = questions[0];
+
+        $(".question").append("<h3 class = 'first'>" + firstQuestion.question + "</h3>")
+
+        $(".first").append("<p>" + firstQuestion.choices + "</p>")
         
     });
 
 
     $("#start").click(startTrivia);
 
+    function renderButtons() {
+        // render choices using a loop and making them a button
+    }
 
     // This function will replace display whatever question it's given
     function displayQuestion() {
