@@ -57,7 +57,15 @@ $(document).ready(function() {
         //     var question = questions[i];
         //     //display each question at a time
         // }
-    
+
+//         <form action="">
+//   <input type="radio" name="gq" value="q1"> q<br>
+//   <input type="radio" name="q" value="q2"> q<br>
+//   <input type="radio" name="q" value="q3"> q
+// </form>
+        for (var i = 0; i < questions.length; i++) {
+            // iterate through the array and access each property 
+        }
 
 
     }
