@@ -184,11 +184,12 @@ $(document).ready(function() {
         }
         
         if(currentQuestion == (blockchain.length-1)){
-            setTimeout(finalScore, 5000)
+            setTimeout(finalScore, 3000)
         } else{
             currentQuestion++;
-            setTimeout(newQuestion, 5000);
-        }	
+            setTimeout(newQuestion, 3000);
+        }
+        
     }
 
     // displays the last page with the final score
@@ -201,9 +202,9 @@ $(document).ready(function() {
         $('#correctAnswers').html("Correct Answers: " + correctAnswer);
         $('#incorrectAnswers').html("Incorrect Answers: " + incorrectAnswer);
         $('#unanswered').html("Unanswered: " + unanswered);
-        $('#startOverBtn').addClass('reset');
-        $('#startOverBtn').show();
-        $('#startOverBtn').html('Start Over?');
+        $('#startOver').addClass('reset');
+        $('#startOver').show();
+        $('#startOver').html('<button type="button" class="btn btn-outline-primary">' + 'Start Over?' + '</button>');
     }
 
 
