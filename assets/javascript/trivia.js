@@ -16,18 +16,19 @@ $(document).ready(function() {
         correct: 3
     }];
 
-// Variable showImage will hold the setInterval when we start the slideshow
+// Variable showImage will hold the setInterval
     var showQuestion;
 
     // Count will keep track of the index of the currently displaying picture.
-    var right = 0;
-    var wrong = 0;
+    var correct = 0;
+    var incorrect = 0;
     var unanswered = 0;
-    var percentage = (right / 10 * 100) + '%';
+    var percentage = (incorrect / 10 * 100) + '%';
     var images;
 
 
     // TODO: Use jQuery to run "startTrivia" when we click the "start" button.
+    $("body").hide();
 
     $("#start").on("click", function() {
         $(this).hide();
@@ -39,65 +40,78 @@ $(document).ready(function() {
         $(".question").append("<h3 class = 'first'>" + firstQuestion.question + "</h3>")
 
         $(".first").append("<p>" + firstQuestion.choices + "</p>")
+
+        $("body").show();
         
     });
 
 
-    $("#start").click(startTrivia);
+//     $("#start").click(startTrivia);
 
-    function renderButtons() {
-        // render choices using a loop and making them a button
-    }
+//     function renderButtons() {
+//         // render choices using a loop and making them a button
+//     }
 
-    // This function will replace display whatever question it's given
-    function displayQuestion() {
-        // generate questions
-        // TODO: Use showQuestion to hold the setInterval to run nextQuestion.
-        // for (var i = 0; i < questions.length; i++) {
-        //     var question = questions[i];
-        //     //display each question at a time
-        // }
+//     // This function will replace display whatever question it's given
+//     function displayQuestion() {
+//         // generate questions
+//         // TODO: Use showQuestion to hold the setInterval to run nextQuestion.
+//         // for (var i = 0; i < questions.length; i++) {
+//         //     var question = questions[i];
+//         //     //display each question at a time
+//         // }
 
-//         <form action="">
-//   <input type="radio" name="gq" value="q1"> q<br>
-//   <input type="radio" name="q" value="q2"> q<br>
-//   <input type="radio" name="q" value="q3"> q
-// </form>
-        for (var i = 0; i < questions.length; i++) {
-            // iterate through the array and access each property 
-        }
+// //         <form action="">
+// //   <input type="radio" name="gq" value="q1"> q<br>
+// //   <input type="radio" name="q" value="q2"> q<br>
+// //   <input type="radio" name="q" value="q3"> q
+// // </form>
+//         for (var i = 0; i < questions.length; i++) {
+//             // iterate through the array and access each property 
+//             var q = questions[i];
+//             $(".question").append("<div class = 'eachQ'>" + q.question + "</div>");
 
+//             var choice = q.choices;
+//     }
 
-    }
+//     for (var j = 0; j < choice.length; j++) {
+//         $(".eachQ").append("<form></form>");
+//             $("form").append("<input type='radio' name= '' value = '" + choice[j] + "'>" + choice[j]);
+    
+//            // $(".question").append("<div>" + q.question + "</div>");
 
-    function nextQuestion() {
-    // if statements 
+//     }
 
-    // next questions
+//         }
+
+//     function nextQuestion() {
+//     // if statements 
+
+//     // next questions
     
 
-    // TODO: Use a setTimeout to run displayQuestion after 1 second.
-    setTimeout(displayQuestion, 1000);
+//     // TODO: Use a setTimeout to run displayQuestion after 1 second.
+//     setTimeout(displayQuestion, 1000);
 
 
-    }
+//     }
 
-    function startTrivia() {
-        $(this).hide();
-counter = setInterval(timer, 1000); 
-displayTrivia();
+//     function startTrivia() {
+//         $(this).hide();
+// counter = setInterval(timer, 1000); 
+// displayTrivia();
 
-    }
+//     }
 
-    function stopTrivia() {
+//     function stopTrivia() {
 
-    // TODO: Put our clearInterval here:
-    clearInterval(showQuestion);
+//     // TODO: Put our clearInterval here:
+//     clearInterval(showQuestion);
 
-    }
+//     }
 
-    // This will run the display question function as soon as the page loads.
-    displayQuestion();
+//     // This will run the display question function as soon as the page loads.
+//     displayQuestion();
 
 
 });
