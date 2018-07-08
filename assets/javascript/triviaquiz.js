@@ -82,11 +82,132 @@ $(document).ready(function() {
     var seconds; 
     var time; 
     var answered; 
-    var select;
+    var selected;
     var currentQuestion; 
     var correctAnswer; 
     var incorrectAnswer; 
 
+    $('#start').on('click', function(){
+        $(this).hide();
+        newGame();
+    });
+
+    $('#startOver').on('click', function(){
+        $(this).hide();
+        newGame();
+    });
+
+    // this displays a new question
+    function newQuestion(){
+        // call the timer
+        timer();
+        
+        // clear our answerpage
+        $('#message').empty();
+        $('#correctedAnswer').empty();
+        $('#gif').empty();
+        answered = true;
+        
+        //sets up new questions & choices
+        $('.question').html('<h3>' + blockchain[currentQuestion].question + '</h3>');
+        for(var i = 0; i < 4; i++){
+            var choices = $('<div>');
+            var choice = blockchain[currentQuestion].choices[i];
+            choices.html('<button type="button" class="btn btn-outline-primary">' + choice + '</button>');
+            choices.attr({'data-index': i });
+            choices.addClass('choice');
+            $('.answerList').append(choices);
+        }
+    
+        $('.choice').on('click',function(){
+            selected = $(this).data('index');
+            clearInterval(time);
+            answerPage();
+        });
+    }
+
+        // this resets the game
+        function newGame(){
+            $('#finalMessage').empty();
+            $('#correctAnswers').empty();
+            $('#incorrectAnswers').empty();
+            $('#unanswered').empty();
+            currentQuestion = 0;
+            correctAnswer = 0;
+            incorrectAnswer = 0;
+            unanswered = 0;
+            newQuestion();
+        }
+
+    // this function will create the timer starting at 30
+    function timer() {
+        seconds = 30;
+        $('#timeLeft').html('<h3>Time Remaining: ' + seconds + '</h3>');
+        answered = true;
+ 
+        time = setInterval(showCountdown, 1000);
+    }
+
+    // this will count down the timer
+    function showCountdown(){
+        seconds--;
+        $('#timeLeft').html('<h3>Time Remaining: ' + seconds + '</h3>');
+        if(seconds < 1){
+            clearInterval(time);
+            answered = false;
+            answerPage();
+        }
+    }
+
+
+    // this displays the answer to the question
+    function answerPage(){
+        $('#timeLeft').empty();
+        $('#currentQuestion').empty();
+        $('.choice').empty(); //Clears question page
+        $('.question').empty();
+
+        var rightAnswer = blockchain[currentQuestion].choices[blockchain[currentQuestion].correct];
+        var rightAnswerIndex = blockchain[currentQuestion].correct;
+        $('#gif').html('<img src = "assets/images/'+ gifs[currentQuestion] +'.gif" width = "400px">');
+        //checks to see correct, incorrect, or unanswered
+        if((selected == rightAnswerIndex) && (answered == true)){
+            correctAnswer++;
+            $('#message').html("This is correct!");
+        } else if ((selected != rightAnswerIndex) && (answered == true)){
+            incorrectAnswer++;
+            $('#message').html("This is incorrect!");
+            $('#correctedAnswer').html('The correct answer is: ' + rightAnswer);
+        } else {
+            unanswered++;
+            $('#message').html("You are out of time!");
+            $('#correctedAnswer').html('The correct answer is: ' + rightAnswer);
+            answered = true;
+        }
+        
+        if(currentQuestion == (blockchain.length-1)){
+            setTimeout(finalScore, 5000)
+        } else{
+            currentQuestion++;
+            setTimeout(newQuestion, 5000);
+        }	
+    }
+
+    // displays the last page with the final score
+    function finalScore(){
+        $('#timeLeft').empty();
+        $('#message').empty();
+        $('#correctedAnswer').empty();
+        $('#gif').empty();
+
+        $('#finalMessage').html("Done!");
+        $('#correctAnswers').html("Correct Answers: " + correctAnswer);
+        $('#incorrectAnswers').html("Incorrect Answers: " + incorrectAnswer);
+        $('#unanswered').html("Unanswered: " + unanswered);
+        $('#startOverBtn').addClass('reset');
+        $('#startOverBtn').show();
+        $('#startOverBtn').html('Start Over?');
+    }
 
 
 });
