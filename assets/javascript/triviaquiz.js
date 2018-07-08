@@ -77,7 +77,6 @@ $(document).ready(function() {
     }];
 
     // set variables
-    var gifs = ['img1', 'img2', 'img3', 'img4', 'img5', 'img6', 'img7', 'img8'];
     var unanswered; 
     var seconds; 
     var time; 
@@ -105,7 +104,7 @@ $(document).ready(function() {
         // clear our answerpage
         $('#message').empty();
         $('#correctedAnswer').empty();
-        $('#gif').empty();
+
         answered = true;
         
         //sets up new questions & choices
@@ -169,7 +168,6 @@ $(document).ready(function() {
 
         var rightAnswer = blockchain[currentQuestion].choices[blockchain[currentQuestion].correct];
         var rightAnswerIndex = blockchain[currentQuestion].correct;
-        $('#gif').html('<img src = "assets/images/'+ gifs[currentQuestion] +'.gif" width = "400px">');
         //checks to see correct, incorrect, or unanswered
         if((selected == rightAnswerIndex) && (answered == true)){
             correctAnswer++;
@@ -198,7 +196,6 @@ $(document).ready(function() {
         $('#timeLeft').empty();
         $('#message').empty();
         $('#correctedAnswer').empty();
-        $('#gif').empty();
 
         $('#finalMessage').html("Done!");
         $('#correctAnswers').html("Correct Answers: " + correctAnswer);
