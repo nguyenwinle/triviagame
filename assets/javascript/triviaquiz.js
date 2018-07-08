@@ -1,108 +1,92 @@
 $(document).ready(function() {
      
-    var blockChain = [{
-        question: "What does P2P stand for?",
+    var blockchain = [{
+        question: "1. What does P2P stand for?",
         choices: [
-            "Password to Password",
-            "Peer to Peer",
-            "Product to Product",
-            "Private Key to Public Key"
+            "A: Password to Password",
+            "B: Peer to Peer",
+            "C: Product to Product",
+            "D: Private Key to Public Key"
         ],
         correct : 1
     }, {
-        question: "What is a node?",
+        question: "2. What is a node?",
         choices: [
-            "A type of cryptocurrency",
-            "A blockchain",
-            "A computer on a blockchain network",
-            "An exchange"
+            "A: A type of cryptocurrency",
+            "B: A blockchain",
+            "C: A computer on a blockchain network",
+            "D: An exchange"
         ],
         correct: 2
     }, {
-        question: "Who created Bitcoin?",
+        question: "3. Who created Bitcoin?",
         choices: [
-            "Satoashi Nakamoto",
-            "Samsung",
-            "John Mcafee",
-            "china"
+            "A: Satoshi Nakamoto",
+            "B: Samsung",
+            "C: John Mcafee",
+            "D: china"
         ],
         correct: 0
     }, {
-        question: "where do you store your cryptcurrency?",
+        question: "4. where do you store your cryptcurrency?",
         choices: [
-            "Bank Account",
-            "Floppy Disk",
-            "Wallet",
-            "In your pocket"
+            "A: Bank Account",
+            "B: Floppy Disk",
+            "C: Wallet",
+            "D: In your pocket"
         ],
         correct: 2
     }, {
-        question: "What are the different types of tokens?",
+        question: "5. What are the different types of tokens?",
         choices: [
-            "Platform",
-            "Privacy",
-            "Currency",
-            "All of the above"
+            "A: Platform",
+            "B: Privacy",
+            "C: Currency",
+            "D: All of the above"
         ],
         correct: 3
     }, {
-        question: "Where is the LEAST SAFE place to keep your cryptocurrency?",
+        question: "6. Where is the LEAST SAFE place to keep your cryptocurrency?",
         choices: [
-            "In your pocket",
-            "On an exchange",
-            "On a hot wallet",
-            "At your work desk"
+            "A: In your pocket",
+            "B: On an exchange",
+            "C: On a hot wallet",
+            "D: At your work desk"
 
         ],
         correct: 1
     }, {
-        question: "Which is NOT apart of asymmetric encryption?",
+        question: "7. Which is NOT apart of asymmetric encryption?",
         choices: [
-            "Mining",
-            "Public key",
-            "Passphrase",
-            "Private Key"
+            "A: Mining",
+            "B: Public key",
+            "C: Passphrase",
+            "D: Private Key"
 
         ],
-        correct: 0
+        correct: 1
     }, {
-        question: "What is a blockchain?",
+        question: "8. What is a blockchain?",
         choices: [
-        "A type of cryptocurrency",
-        "An exchange",
-        "A distributed ledger on a peer to peer network",
-        "A centralized ledger"
+        "A: A type of cryptocurrency",
+        "B: An exchange",
+        "C: A distributed ledger on a peer to peer network",
+        "D: A centralized ledger"
         ], 
         correct: 2
     }];
 
-    var showQuestion;
+    // set variables
+    var gifs = ['img1', 'img2', 'img3', 'img4', 'img5', 'img6', 'img7', 'img8'];
+    var unanswered; 
+    var seconds; 
+    var time; 
+    var answered; 
+    var select;
+    var currentQuestion; 
+    var correctAnswer; 
+    var incorrectAnswer; 
 
-    // Count will keep track of the index of the currently displaying picture.
-    var correct = 0;
-    var incorrect = 0;
-    var unanswered = 0;
-    var percentage = (incorrect / 10 * 100) + '%';
-    var images;
-
-
-    // Use jQuery to run "startTrivia" when we click the "start" button.
-
-
-    $("#start").on("click", function() {
-        $(this).hide();
-
-        //$("body").append("<h3>Time Remaining:" + time + "</h3");
-
-        var firstQuestion = questions[0];
-
-        $(".question").append("<h3 class = 'first'>" + firstQuestion.question + "</h3>")
-
-        $(".first").append("<p>" + firstQuestion.choices + "</p>")
-
-        $("body").show();
-        
-    });
 
 
 });
