@@ -76,7 +76,7 @@ $(document).ready(function() {
         correct: 2
     }];
 
-    // set variables
+    // set empty variables
     var unanswered; 
     var seconds; 
     var time; 
